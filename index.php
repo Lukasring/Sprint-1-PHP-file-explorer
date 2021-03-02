@@ -16,6 +16,7 @@
       <li class="column-titles">
         <div>Type</div>
         <div>Name</div>
+        <div>Actions</div>
       </li>
       <?php
       function printDirectoriesAndFiles($path)
@@ -34,22 +35,41 @@
 
       function printLine($type, $name)
       {
-        print("<li><div>{$type}</div><div>{$name}</div></li>");
+        print("<li><div>{$type}</div>");
+        if ($type == 'Directory') {
+          print("<a href=\"?dir=${name}\">{$name}</a><div></div></li>");
+        } else {
+          print("<div>{$name}</div><div><button>Delete</button></div></li>");
+        }
       }
-
-      // $path = '.';
       $dir = glob(dirname(__FILE__));
+      $basePath = $dir[0];
+      // $currentPath;
+      $currentPath = $basePath;
+      // $path = '.';
+      if (isset($_GET["dir"])) {
+        $currentPath = $currentPath . DIRECTORY_SEPARATOR . $_GET["dir"];
+      } else {
+        $currentPath = $basePath;
+      }
       // $path = $dir[0] . '/rand'; // neveikia
-      $path = $dir[0];
-      // print($dir[0]);
       // $resourece = opendir($path);
       // var_dump($resourece);
-      printDirectoriesAndFiles($path);
-
+      printDirectoriesAndFiles($currentPath);
+      print("\n {$currentPath}");
 
       ?>
     </ul>
     <button class="btn back">Back</button>
+    <?php
+    // print('<br>');
+    // var_dump($_SERVER['REQUEST_URI']);
+    // print('<br>');
+    // var_dump($_SERVER['REQUEST_METHOD']);
+    // print('<br>');
+    // var_dump($_SERVER['SCRIPT_NAME']);
+
+    ?>
   </main>
 </body>
 
