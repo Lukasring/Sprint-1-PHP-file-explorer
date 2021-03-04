@@ -9,9 +9,29 @@
   <title>File Explorer</title>
 </head>
 
+<?php
+session_start();
+require('./lib/renderTable.php');
+
+$dir = glob(dirname(__FILE__));
+$basePath = $dir[0];
+if (isset($_GET["dir"])) {
+  $_SESSION['path'] = $_GET['dir'];
+} else {
+  $_SESSION['path'] = '';
+  $_SESSION['root_dir'] = $_SERVER['REQUEST_URI'];
+}
+?>
+
 <body>
-  <header>File explorer</header>
+  <header>File Explorer</header>
   <main>
+    <div class="current-location">
+      Current Location:
+      <?php
+      print(substr($_SESSION['root_dir'], 0, -1) . $_SESSION['path']);
+      ?>
+    </div>
     <ul>
       <li class="column-titles">
         <div>Type</div>
@@ -19,57 +39,20 @@
         <div>Actions</div>
       </li>
       <?php
-      function printDirectoriesAndFiles($path)
-      {
-        $scannedDirectory = array_diff(scandir($path), array('..', '.'));
-        // print_r($scannedDirectory);
-        foreach ($scannedDirectory as $value) {
-          // print($value);
-          if (is_dir($path . DIRECTORY_SEPARATOR . $value)) {
-            printLine('Directory', $value);
-          } elseif (is_file($path . DIRECTORY_SEPARATOR . $value)) {
-            printLine('File', $value);
-          }
-        }
-      }
-
-      function printLine($type, $name)
-      {
-        print("<li><div>{$type}</div>");
-        if ($type == 'Directory') {
-          print("<a href=\"?dir=${name}\">{$name}</a><div></div></li>");
-        } else {
-          print("<div>{$name}</div><div><button>Delete</button></div></li>");
-        }
-      }
-      $dir = glob(dirname(__FILE__));
-      $basePath = $dir[0];
-      // $currentPath;
-      $currentPath = $basePath;
-      // $path = '.';
-      if (isset($_GET["dir"])) {
-        $currentPath = $currentPath . DIRECTORY_SEPARATOR . $_GET["dir"];
-      } else {
-        $currentPath = $basePath;
-      }
-      // $path = $dir[0] . '/rand'; // neveikia
-      // $resourece = opendir($path);
-      // var_dump($resourece);
-      printDirectoriesAndFiles($currentPath);
-      print("\n {$currentPath}");
-
+      printDirectoriesAndFiles($basePath . $_SESSION['path']);
       ?>
     </ul>
-    <button class="btn back">Back</button>
     <?php
-    // print('<br>');
-    // var_dump($_SERVER['REQUEST_URI']);
-    // print('<br>');
-    // var_dump($_SERVER['REQUEST_METHOD']);
-    // print('<br>');
-    // var_dump($_SERVER['SCRIPT_NAME']);
 
+    $previousPath = preg_replace('([^\/]+$)', '', $_SESSION['path']);
+    // nepavyko su regex 
+    $previousPath = substr($previousPath, 0, -1);
+
+    (($previousPath == '') || ($previousPath == '/')) ?
+      print("<a href='{$_SESSION['root_dir']}' class=\"btn back\">Back</a>") :
+      print("<a href='?dir={$previousPath}' class=\"btn back\">Back</a>");
     ?>
+
   </main>
 </body>
 
