@@ -10,7 +10,7 @@ Failų naršyklė padaryta su PHP
 - [x] Pradžioje reiks padaryti paprastą variantą, kad galėtume matyti failus ir direktorijas.
 - [x] Padaryti įeigą į direktoriją ir back mygtuką
 - [x] Pridėti Log In formą
-- [ ] Pridėti galimybę ištrinti failus direktorijose
+- [x] Pridėti galimybę ištrinti failus direktorijose
 - [x] Pridėti galimybę sukurti failus direktorijose
 - [x] Pridėti galimybę sukurti direktorijas
 - [ ] Pridėti galimybę įkelti failus

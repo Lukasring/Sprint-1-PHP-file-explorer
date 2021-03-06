@@ -19,6 +19,11 @@ function printLine($type, $name)
   if ($type == 'Directory') {
     print("<a href=\"?dir={$_SESSION['path']}/${name}\">{$name}</a><div></div></li>");
   } else {
-    print("<div>{$name}</div><div><button>Delete</button></div></li>");
+    $classes = 'btn small danger';
+    $isPHP = preg_match('/\.(php)$/', $name);
+    if ($isPHP == 1) {
+      $classes = $classes . ' disabled';
+    }
+    print("<div>{$name}</div><div><a href='?action=delete&fname={$name}&path={$_SESSION['path']}' class='{$classes}'>Delete</a></div></li>");
   }
 }

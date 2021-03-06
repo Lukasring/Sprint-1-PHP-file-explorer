@@ -5,6 +5,7 @@ require('./lib/renderTable.php');
 require('./lib/navigate.php');
 require('./lib/auth.php');
 require('./lib/create.php');
+require('./lib/delete.php');
 
 if (!isset($_SESSION['logged_in'])) {
   var_dump($_SESSION['logged_in']);
