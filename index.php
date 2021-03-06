@@ -1,11 +1,13 @@
 <?php
 session_start();
 $_SESSION['errMsg'] = '';
+$_SESSION['successMsg'] = '';
 require('./lib/renderTable.php');
 require('./lib/navigate.php');
 require('./lib/auth.php');
 require('./lib/create.php');
 require('./lib/delete.php');
+require('./lib/uploadFile.php');
 
 if (!isset($_SESSION['logged_in'])) {
   var_dump($_SESSION['logged_in']);
@@ -61,7 +63,8 @@ require('./lib/logout.php');
       print("<a href='{$_SESSION['root_dir']}' class=\"btn back\">Back</a>") :
       print("<a href='?dir={$previousPath}' class=\"btn back\">Back</a>");
     ?>
-    <p class="err"><?php echo $_SESSION['errMsg'] ?></p>
+    <p class="msg err"><?php echo $_SESSION['errMsg'] ?></p>
+    <p class="msg success"><?php echo $_SESSION['successMsg'] ?></p>
     <div class="tabs">
       <button id='create-dir-tab' class="tab">Create Directory</button>
       <button id='create-file-tab' class="tab">Create File</button>
@@ -85,6 +88,15 @@ require('./lib/logout.php');
         <button class="btn danger">Cancel</button>
       </div>
     </form>
+    <form id='upload-file-form' action="" method="POST" enctype="multipart/form-data" class="form hidden">
+      <input type="file" name="image" />
+      <div class="form-control">
+        <button type="submit" class="btn">Submit</button>
+        <button class="btn danger">Cancel</button>
+      </div>
+    </form>
+
+
   </main>
 </body>
 <script src="./src/app/app.js" type='module'></script>

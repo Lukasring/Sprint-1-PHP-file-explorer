@@ -6,6 +6,7 @@ console.log(formCancelBtns);
 const tabFormMap = {
   "create-dir-tab": "create-dir-form",
   "create-file-tab": "create-file-form",
+  "upload-file-tab": "upload-file-form",
 };
 
 function removeActive(tabs) {
@@ -28,6 +29,7 @@ for (const btn of formCancelBtns) {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
     hideForms(forms);
+    removeActive(tabs);
   });
 }
 
@@ -39,10 +41,11 @@ for (const tab of tabs) {
     hideForms(forms);
     const tabFormId = tabFormMap[tab.id];
     if (tabFormId) {
+      console.log(tabFormId);
       const form = forms.find((form) => form.id === tabFormId);
       displayForm(form);
     }
   });
 }
 
-hideForms(forms);
+// hideForms(forms);

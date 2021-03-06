@@ -13,5 +13,5 @@ Failų naršyklė padaryta su PHP
 - [x] Pridėti galimybę ištrinti failus direktorijose
 - [x] Pridėti galimybę sukurti failus direktorijose
 - [x] Pridėti galimybę sukurti direktorijas
-- [ ] Pridėti galimybę įkelti failus
+- [x] Pridėti galimybę įkelti failus
 - [ ] Pridėti galimybę parsisiųsti failus
