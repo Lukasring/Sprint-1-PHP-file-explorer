@@ -63,11 +63,11 @@ require('./lib/logout.php');
     ?>
     <p class="err"><?php echo $_SESSION['errMsg'] ?></p>
     <div class="tabs">
-      <button class="tab">Create Directory</button>
-      <button class="tab active">Create File</button>
-      <button class="tab">Upload file</button>
+      <button id='create-dir-tab' class="tab">Create Directory</button>
+      <button id='create-file-tab' class="tab">Create File</button>
+      <button id='upload-file-tab' class="tab">Upload file</button>
     </div>
-    <form style='display:none' action='' method="POST" class="form">
+    <form id='create-dir-form' action='' method="POST" class="form hidden">
       <h4 class='title'>Create New Directory</h4>
       <label for='dir-name'>Directory Name</label>
       <input type='text' id='dir-name' name='dir-name' />
@@ -76,7 +76,7 @@ require('./lib/logout.php');
         <button class="btn danger">Cancel</button>
       </div>
     </form>
-    <form action='' method="POST" class="form">
+    <form id='create-file-form' action='' method="POST" class="form hidden">
       <h4 class='title'>Create New File</h4>
       <label for='file-name'>File Name</label>
       <input type='text' id='file-name' name='file-name' />
@@ -87,5 +87,6 @@ require('./lib/logout.php');
     </form>
   </main>
 </body>
+<script src="./src/app/app.js" type='module'></script>
 
 </html>

@@ -11,6 +11,10 @@
   border-radius: 8px;
 }
 
+.form.hidden {
+  display: none;
+}
+
 .form > input,
 .form > label {
   width: 100%;
