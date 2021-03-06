@@ -24,6 +24,21 @@ function printLine($type, $name)
     if ($isPHP == 1) {
       $classes = $classes . ' disabled';
     }
-    print("<div>{$name}</div><div><a href='?action=delete&fname={$name}&path={$_SESSION['path']}' class='{$classes}'>Delete</a></div></li>");
+    print("<div>{$name}</div><div class='file-actions'>");
+    print("<a href='?action=delete&fname={$name}&path={$_SESSION['path']}' class='{$classes}'>Delete</a>");
+    print(renderFileActionPostForm('download', $_SESSION['path'], $name));
+    print("</div></li>");
   }
+}
+
+function renderFileActionPostForm($action, $path, $filename)
+{
+
+  $formHTML = "<form method='POST'>
+                <input type='submit' name='${action}' value='{$action}' class='btn small'/>
+                <input type='hidden' name='file' value='{$filename}'/>
+                <input type='hidden' name='path' value='{$path}'/>
+              </form>";
+
+  return $formHTML;
 }

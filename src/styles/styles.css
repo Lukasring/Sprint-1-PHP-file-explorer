@@ -44,6 +44,12 @@ li:hover {
   cursor: default;
 }
 
+.file-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .btn {
   display: inline-block;
   text-decoration: none;
