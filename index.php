@@ -4,7 +4,7 @@ $_SESSION['errMsg'] = '';
 require('./lib/renderTable.php');
 require('./lib/navigate.php');
 require('./lib/auth.php');
-require('./lib/createDirectory.php');
+require('./lib/create.php');
 
 if (!isset($_SESSION['logged_in'])) {
   var_dump($_SESSION['logged_in']);
@@ -62,16 +62,25 @@ require('./lib/logout.php');
     ?>
     <p class="err"><?php echo $_SESSION['errMsg'] ?></p>
     <div class="tabs">
-      <button class="tab active">Create Directory</button>
-      <button class="tab">Create File</button>
+      <button class="tab">Create Directory</button>
+      <button class="tab active">Create File</button>
       <button class="tab">Upload file</button>
     </div>
-    <form action='' method="POST" class="form">
+    <form style='display:none' action='' method="POST" class="form">
       <h4 class='title'>Create New Directory</h4>
-      <label>Directory Name</label>
+      <label for='dir-name'>Directory Name</label>
       <input type='text' id='dir-name' name='dir-name' />
       <div class="form-control">
         <button type="submit" name="createDirectory" class="btn">Create</button>
+        <button class="btn danger">Cancel</button>
+      </div>
+    </form>
+    <form action='' method="POST" class="form">
+      <h4 class='title'>Create New File</h4>
+      <label for='file-name'>File Name</label>
+      <input type='text' id='file-name' name='file-name' />
+      <div class="form-control">
+        <button type="submit" name="createFile" class="btn">Create</button>
         <button class="btn danger">Cancel</button>
       </div>
     </form>

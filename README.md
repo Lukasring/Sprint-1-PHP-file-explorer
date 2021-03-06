@@ -11,7 +11,7 @@ Failų naršyklė padaryta su PHP
 - [x] Padaryti įeigą į direktoriją ir back mygtuką
 - [x] Pridėti Log In formą
 - [ ] Pridėti galimybę ištrinti failus direktorijose
-- [ ] Pridėti galimybę sukurti failus direktorijose
+- [x] Pridėti galimybę sukurti failus direktorijose
 - [x] Pridėti galimybę sukurti direktorijas
 - [ ] Pridėti galimybę įkelti failus
 - [ ] Pridėti galimybę parsisiųsti failus
