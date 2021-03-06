@@ -75,7 +75,22 @@ li:hover {
   /* background */
 }
 
+.btn.danger {
+  border: 1px solid red;
+}
+
+.btn.danger:hover {
+  background: rgb(255, 80, 80);
+  color: white;
+}
+
 .current-location {
   font-size: 24px;
   margin-bottom: 8px;
+}
+
+.err {
+  color: red;
+  font-size: 16px;
+  text-align: center;
 }

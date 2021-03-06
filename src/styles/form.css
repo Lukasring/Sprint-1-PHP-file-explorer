@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 32px;
+  margin: auto;
+  margin-top: 16px;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  border: 2px solid purple;
+  border-radius: 8px;
+}
+
+.form > input,
+.form > label {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.form > input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid purple;
+  font-size: 16px;
+}
+
+.form .title {
+  color: purple;
+  font-size: 20px;
+  margin-bottom: 16px;
+}

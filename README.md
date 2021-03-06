@@ -9,6 +9,9 @@ Failų naršyklė padaryta su PHP
 - [x] Sukurti GitHub direktoriją
 - [x] Pradžioje reiks padaryti paprastą variantą, kad galėtume matyti failus ir direktorijas.
 - [x] Padaryti įeigą į direktoriją ir back mygtuką
-- [ ] Pridėti Log In formą
+- [x] Pridėti Log In formą
 - [ ] Pridėti galimybę ištrinti failus direktorijose
 - [ ] Pridėti galimybę sukurti failus direktorijose
+- [x] Pridėti galimybę sukurti direktorijas
+- [ ] Pridėti galimybę įkelti failus
+- [ ] Pridėti galimybę parsisiųsti failus
