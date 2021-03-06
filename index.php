@@ -1,3 +1,21 @@
+<?php
+session_start();
+require('./lib/renderTable.php');
+require('./lib/navigate.php');
+require('./lib/auth.php');
+
+if (!isset($_SESSION['logged_in'])) {
+  var_dump($_SESSION['logged_in']);
+  print('not logged in');
+  header("Location: {$_SESSION['root_dir']}login");
+}
+
+$dir = glob(dirname(__FILE__));
+$basePath = $dir[0];
+
+require('./lib/logout.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,22 +27,10 @@
   <title>File Explorer</title>
 </head>
 
-<?php
-session_start();
-require('./lib/renderTable.php');
-
-$dir = glob(dirname(__FILE__));
-$basePath = $dir[0];
-if (isset($_GET["dir"])) {
-  $_SESSION['path'] = $_GET['dir'];
-} else {
-  $_SESSION['path'] = '';
-  $_SESSION['root_dir'] = $_SERVER['REQUEST_URI'];
-}
-?>
-
 <body>
-  <header>File Explorer</header>
+  <header>File Explorer
+    <a href="?action=logout" class="btn logout">Logout</a>
+  </header>
   <main>
     <div class="current-location">
       Current Location:
