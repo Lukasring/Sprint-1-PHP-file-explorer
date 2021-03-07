@@ -6,7 +6,7 @@
   margin-top: 16px;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 100%;
   border: 2px solid purple;
   border-radius: 8px;
 }
@@ -33,4 +33,34 @@
   color: purple;
   font-size: 20px;
   margin-bottom: 16px;
+}
+
+.form > .file-upload__label {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid purple;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.form > .file-upload__label:hover {
+  color: purple;
+}
+
+.file-upload__file-info {
+  text-align: center;
+}
+
+@media (min-width: 500px) {
+  .form {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .form {
+    width: 40%;
+  }
 }

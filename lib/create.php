@@ -9,6 +9,9 @@ if (isset($_POST['createDirectory']) && !empty($_POST['dir-name'])) {
     $_SESSION['errMsg'] = "Directory '{$_POST['dir-name']}' already exists!";
     $_SESSION['successMsg'] = '';
   }
+} elseif (isset($_POST['createDirectory']) && empty($_POST['dir-name'])) {
+  $_SESSION['errMsg'] = "Directory name can't be empty!";
+  $_SESSION['successMsg'] = '';
 }
 
 if (isset($_POST['createFile']) && !empty($_POST['file-name'])) {
@@ -21,4 +24,7 @@ if (isset($_POST['createFile']) && !empty($_POST['file-name'])) {
     $_SESSION['errMsg'] = "File '{$_POST['file-name']}' already exists!";
     $_SESSION['successMsg'] = '';
   }
+} elseif (isset($_POST['createFile']) && empty($_POST['file-name'])) {
+  $_SESSION['errMsg'] = "File name can't be empty!";
+  $_SESSION['successMsg'] = '';
 }

@@ -34,7 +34,8 @@ require('./lib/logout.php');
 </head>
 
 <body>
-  <header>File Explorer
+  <header>
+    <a href='./' class="header-title">File Explorer</a>
     <a href="?action=logout" class="btn logout">Logout</a>
   </header>
   <main>
@@ -90,7 +91,11 @@ require('./lib/logout.php');
       </div>
     </form>
     <form id='upload-file-form' action="" method="POST" enctype="multipart/form-data" class="form hidden">
-      <input type="file" name="image" />
+      <label for='file-input' class='file-upload__label'>
+        Click here to select file
+        <input id='file-input' type="file" name="file" style="display:none" />
+      </label>
+      <p class='file-upload__file-info'>No file selected</p>
       <div class="form-control">
         <button type="submit" class="btn">Submit</button>
         <button class="btn danger">Cancel</button>

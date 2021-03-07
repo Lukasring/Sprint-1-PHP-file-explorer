@@ -1,7 +1,13 @@
 const tabs = Array.from(document.querySelectorAll(".tab"));
 const forms = Array.from(document.querySelectorAll(".form"));
 const formCancelBtns = document.querySelectorAll(".form .btn.danger");
-console.log(formCancelBtns);
+
+const fileInputEl = document.querySelector("input[type='file']");
+const fileInputInfo = document.querySelector(".file-upload__file-info");
+
+fileInputEl.addEventListener("change", (e) => {
+  fileInputInfo.innerText = e.target.value.split(/(\\|\/)/g).pop();
+});
 
 const tabFormMap = {
   "create-dir-tab": "create-dir-form",
@@ -41,11 +47,8 @@ for (const tab of tabs) {
     hideForms(forms);
     const tabFormId = tabFormMap[tab.id];
     if (tabFormId) {
-      console.log(tabFormId);
       const form = forms.find((form) => form.id === tabFormId);
       displayForm(form);
     }
   });
 }
-
-// hideForms(forms);
