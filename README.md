@@ -4,7 +4,7 @@
 
 BIT PHP kurso pirmasis projektas.
 
-**Failų naršyklė padaryta su PHP**
+**Failų naršyklės logika padaryta su PHP**
 
 - Galimybė naršyti po vidines direktorijas
 - Galimybė peržiūrėti failus esančius direktorijoje, bei juos parisiųsti arba ištrinti (negalima ištrinti .php failų)
@@ -12,7 +12,9 @@ BIT PHP kurso pirmasis projektas.
 - Galimybė sukurti ir įkelti failus
 
 **Paleidimas**
+
 Šis projektas sukurtas naudojant AMPPS rinkinį. [AMPPS](http://mrbool.com/php-server-how-to-setup-ampps-and-execute-php-programs/30593)
+
 Norint paleisti šį projektą, jį reikia įkelti į _AMPPS_ direktorijoje esančią _www_ direktoriją.
 
 **Todos:**
@@ -28,4 +30,5 @@ Norint paleisti šį projektą, jį reikia įkelti į _AMPPS_ direktorijoje esan
 - [x] Pridėti galimybę parsisiųsti failus
 
 **Autorius:**
+
 [Lukas](https://github.com/Lukasring)
